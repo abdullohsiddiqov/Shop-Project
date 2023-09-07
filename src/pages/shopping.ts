@@ -24,6 +24,7 @@ const productHTML = `
         </svg> Your choise</button>
         <div class = "red"><span class="quantity" style="background-color:red;border-radius:50%;display:flex;justify-content:center; align-items:center;height:20px;color:#fff;position:relative;right:30px;bottom:10px;padding:5px 5px;">0</span></div>
           <button class="btn-login btn btn-outline-primary" style="display:block;" id="logIn">Log in</button>
+          <div class = "User-avatar" style = "width:60px; height:60px; border-radius:50%; border:1px solid #0D6EFD; color:#0D6EFD; display: none; font-size:20px;font-family:sans-serif;justify-content:center; align-items:center; font-weight:800;"></div>
           <svg id="exit"; class=" btn btn-outline-primary" style="width:50px; height:50px; display:none;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
   <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
   <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
@@ -79,12 +80,14 @@ export const products = async () => {
     container.addEventListener("click", (event) => {
       const target = event.target as HTMLButtonElement;
       let quantity:HTMLSpanElement = document.querySelector(".quantity") as HTMLSpanElement;
+      let card:HTMLParagraphElement = document.querySelector(".card-text") as HTMLParagraphElement
       if (target.classList.contains("card__btn")) {
         target.disabled = true;
 
         counter++;
         quantity.innerHTML = counter.toString();
-        
+        let productPrice = card;
+        console.log(productPrice)
 
         badge.innerText = `${counter > 50 ? "50+" : counter}`;
         badge.classList.remove("visually-hidden");

@@ -43,7 +43,10 @@ export const login = () => {
     const user = userService.login(phone.value, password.value);
     products();
     exitSvg();
-    BtnLogin()
+    BtnLogin();
+    let ava:HTMLDivElement = document.querySelector(".User-avatar");
+    ava.style.display = "flex";
+    ava.innerHTML = phone.value.toString().slice(0,1);
     // yourChoice()
   };
 };
